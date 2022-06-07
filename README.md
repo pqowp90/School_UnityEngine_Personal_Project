@@ -1,2 +1,6 @@
 # School_UnityEngine_Personal_Project
-유니티 엔진응용시간때 하는 세미프로젝트
+## 중간발표 6/21      최종발표 6/28          (세미프로젝트)
+---
+
+
+
