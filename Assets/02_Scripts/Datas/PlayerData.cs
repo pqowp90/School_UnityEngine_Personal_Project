@@ -8,6 +8,7 @@ public class PlayerData : ScriptableObject
 {
     public float sensivity;
     public float speed;
+    public float jumpForce;
     public int life;
     public float stamina;
     public float attackPower;
