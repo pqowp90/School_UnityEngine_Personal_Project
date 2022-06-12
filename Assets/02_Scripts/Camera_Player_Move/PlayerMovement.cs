@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight + 0.5f, whatIsGround);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();
         SpeedControl();
 
@@ -63,11 +63,9 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw(ConstantManager.PM_HO);
         verticalInput = Input.GetAxisRaw(ConstantManager.PM_VER);
 
-        if (Input.GetKey(KeyCode.Space) && readyToJump && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            readyToJump = false;
             Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
@@ -77,13 +75,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
             myrigid.AddForce(moveDir.normalized * playerData.speed * 10f, ForceMode.Force);
-        else 
-        {
-            Debug.Log("Air");
+        else
             myrigid.AddForce(moveDir.normalized * playerData.speed * 10f * airMultiplier, ForceMode.Force);
-
-        }
-
     }
 
     private void SpeedControl()
@@ -99,12 +92,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        myrigid.velocity = new Vector3(myrigid.velocity.x, 0f, myrigid.velocity.y);
+        readyToJump = false;
+
+        //myrigid.velocity = new Vector3(myrigid.velocity.x, 0f, myrigid.velocity.y);
         myrigid.AddForce(transform.up * playerData.jumpForce, ForceMode.Impulse);
     }
 
     private void ResetJump()
     {
+        if (readyToJump) return;
         readyToJump = true;
     }
 }

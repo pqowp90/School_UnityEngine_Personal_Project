@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensivity: 5
   speed: 10
-  jumpForce: 12
+  jumpForce: 1
   life: 5
   stamina: 20
   attackPower: 5
