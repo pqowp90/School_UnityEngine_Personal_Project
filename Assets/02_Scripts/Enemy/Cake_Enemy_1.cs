@@ -13,7 +13,7 @@ public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
         myrigid = GetComponent<Rigidbody>();
     }
 
-    public void Damage()
+    public void Damage(int _damage)
     {
         if (hp <= 0)
         {
@@ -23,7 +23,7 @@ public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
         }
         else
         {
-            --hp;
+            hp -= _damage;
         }
     }
 }

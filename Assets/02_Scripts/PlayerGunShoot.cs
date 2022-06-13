@@ -31,7 +31,6 @@ public class PlayerGunShoot : MonoBehaviour
         {
             if (hit.collider.CompareTag("ENEMY"))
             {
-                hit.collider.gameObject.GetComponent<EnemyInterface>().Damage();
                 Debug.Log("¶¼¹ÌÁö");
             }
 

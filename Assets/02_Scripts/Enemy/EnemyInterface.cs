@@ -1,4 +1,4 @@
 interface EnemyInterface
 {
-    void Damage();
+    void Damage(int _damage);
 }
