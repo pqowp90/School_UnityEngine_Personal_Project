@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerGunShoot : MonoBehaviour
 {
-    public Transform a;
+    private Transform mainCamPos = null;
     public Transform BulletPos = null;
     public GameObject BulletObj = null;
 
+    private void Start()
+    {
+        mainCamPos = Camera.main.transform;
+    }
+
     private void Update()
     {
-        CheckRayCastHitPosition();
         if (Input.GetMouseButtonDown(0))
         {
-
+            CheckRayCastHitPosition();
         }
     }
 
@@ -21,16 +25,12 @@ public class PlayerGunShoot : MonoBehaviour
     {
         RaycastHit hit;
 
-        Debug.DrawRay(a.position, transform.forward * 100f, Color.red);
+        Debug.DrawRay(mainCamPos.position, mainCamPos.forward * 100f, Color.red);
 
-        if(Physics.Raycast(a.position, transform.forward,out hit,100f))
+        if (Physics.Raycast(mainCamPos.position, mainCamPos.forward, out hit, 100f))
         {
-            Debug.Log(hit.transform.position);
+            GameObject bullet = Instantiate(BulletObj, mainCamPos.transform.position, mainCamPos.transform.rotation);
+            Destroy(bullet, 2f);
         }
-    }
-    
-    private void FireBullet()
-    {
-        GameObject bullet = Instantiate(BulletObj, transform.position, transform.rotation);
     }
 }

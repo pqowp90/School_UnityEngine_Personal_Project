@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("-------Movement-------")]
+    // Movement
     private float horizontalInput;
     private float verticalInput;
 
@@ -23,12 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform orientation = null;
 
     [Header("-------Jump-------")]
-    public float jumpCooldown;
     public float airMultiplier;
-
-    private float jumpInput;
-    private bool readyToJump = true;
-
 
     private void Awake()
     {
@@ -92,15 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        readyToJump = false;
-
         //myrigid.velocity = new Vector3(myrigid.velocity.x, 0f, myrigid.velocity.y);
         myrigid.AddForce(transform.up * playerData.jumpForce, ForceMode.Impulse);
-    }
-
-    private void ResetJump()
-    {
-        if (readyToJump) return;
-        readyToJump = true;
     }
 }

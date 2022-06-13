@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FLOOR
   - BULLET
+  - ENEMY
   layers:
   - Default
   - TransparentFX

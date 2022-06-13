@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9197788869021447046}
   - component: {fileID: 9197788869023738874}
   - component: {fileID: 9197788869023738873}
+  - component: {fileID: 7038603267896243959}
   m_Layer: 0
   m_Name: Bullet_grape
   m_TagString: BULLET
@@ -112,3 +113,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSeed: 10
+--- !u!136 &7038603267896243959
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197788869023640902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1567422
+  m_Height: 0.44650894
+  m_Direction: 1
+  m_Center: {x: 0.0000002235174, y: -0.00000005960464, z: 0}

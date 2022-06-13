@@ -6,4 +6,5 @@ public static class ConstantManager
     public const string PM_MOY = "Mouse Y";
 
     public const string TAG_FLOOR = "FLOOR";
+    public const string TAG_BULLET = "BULLET";
 }

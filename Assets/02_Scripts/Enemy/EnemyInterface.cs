@@ -1,0 +1,4 @@
+interface EnemyInterface
+{
+    void Damage();
+}
