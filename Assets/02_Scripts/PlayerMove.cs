@@ -24,7 +24,6 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        Debug.Log(isGrounded);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -39,7 +38,6 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown(ConstantManager.PM_JP) && isGrounded)
         {
-            Debug.Log("Jump");
             velocity.y = Mathf.Sqrt(playerData.jumpForce * -2f * gravity);
         }
 
