@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cake_Enemy_1 : MonoBehaviour
+public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
 {
     [SerializeField] private float hp = 50f;
 
@@ -13,18 +13,7 @@ public class Cake_Enemy_1 : MonoBehaviour
         myrigid = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag(ConstantManager.TAG_BULLET))
-        {
-            Debug.Log("ÃÑ¾ËÂ»");
-            Destroy(collision.gameObject);
-
-            EnemyDamaged();
-        }
-    }
-
-    private void EnemyDamaged()
+    public void Damage()
     {
         if (hp <= 0)
         {
