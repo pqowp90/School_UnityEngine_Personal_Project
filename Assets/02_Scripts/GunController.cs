@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [Header("------GunInfo------")]
     [SerializeField] public Transform bulletTrn = null;
     [SerializeField] public GameObject bulletObj = null;
 
     private Transform mainCamTrn = null;
     RaycastHit hitInfo;
 
+    [Header("------GunEffect------")]
+    [SerializeField] private GameObject hitEffect = null;
+
     private void Start()
     {
         mainCamTrn = Camera.main.transform;
+
+        
     }
 
     private void Update()
@@ -26,11 +32,14 @@ public class GunController : MonoBehaviour
 
                 if (hitInfo.collider.CompareTag("ENEMY"))
                 {
+                    Instantiate(hitEffect, hitInfo.point, Quaternion.identity);
+
                     EnemyInterface enmey = hitInfo.collider.GetComponent<EnemyInterface>();
 
                     if (enmey != null)
                         enmey.Damage(1);
                 }
+
             }
         }
 

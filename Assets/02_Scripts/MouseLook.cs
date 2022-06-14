@@ -12,8 +12,8 @@ public class MouseLook : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         playerData = Resources.Load<PlayerData>("SO/" + "PlayerData");
     }

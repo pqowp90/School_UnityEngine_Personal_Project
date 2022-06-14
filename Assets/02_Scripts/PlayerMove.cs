@@ -14,10 +14,14 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
+
+    private float speed;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         playerData = Resources.Load<PlayerData>("SO/" + "PlayerData");
+
+        speed = playerData.speed;
     }
 
 
@@ -34,7 +38,9 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 move = (transform.right * x) + (transform.forward * z);
 
-        controller.Move(move * playerData.speed * Time.deltaTime);
+        RunPlayer();
+
+        controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown(ConstantManager.PM_JP) && isGrounded)
         {
@@ -44,5 +50,13 @@ public class PlayerMove : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void RunPlayer()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = playerData.runspeed;
+        else
+            speed = playerData.speed;
     }
 }

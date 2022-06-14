@@ -1,21 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
 {
-    [SerializeField] private float hp = 50f;
+    private readonly float initHP = 20f;
+    [SerializeField] private float currentHP;
 
     private Rigidbody myrigid;
 
+    // hp Bar
+    public Image hpBar;
+
+    public float height = 1.7f;
+
     private void Start()
     {
+        currentHP = initHP;
         myrigid = GetComponent<Rigidbody>();
     }
 
+
     public void Damage(int _damage)
     {
-        if (hp <= 0)
+        if (currentHP <= 0)
         {
             Debug.Log("Enemy_Cake is Die!!");
             Destroy(gameObject);
@@ -23,7 +32,13 @@ public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
         }
         else
         {
-            hp -= _damage;
+            currentHP -= _damage;
+            DisPlayHP();
         }
+    }
+
+    private void DisPlayHP()
+    {
+        hpBar.fillAmount = currentHP / initHP;
     }
 }

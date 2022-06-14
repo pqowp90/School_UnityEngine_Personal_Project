@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerGunShoot : MonoBehaviour
 {
-    private Transform mainCamPos = null;
+    [Header("------GunInfo------")]
     public Transform BulletPos = null;
     public GameObject BulletObj = null;
+    private Transform mainCamPos = null;
+
+    [Header("------GunEffect------")]
+    [SerializeField] private GameObject effect = null;
 
     private void Start()
     {

@@ -10,8 +10,8 @@ public class BulletMove : MonoBehaviour
 
     private void Start()
     {
-        myrigid = GetComponent<Rigidbody>();
-        myrigid.AddForce(transform.forward * 1000f);
+        //myrigid = GetComponent<Rigidbody>();
+        //myrigid.AddForce(transform.forward * 1000f);
 
     }
 
