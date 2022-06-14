@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
 {
-    private readonly float initHP = 20f;
+    private readonly float initHP = 10f;
     [SerializeField] private float currentHP;
 
     private Rigidbody myrigid;
@@ -13,14 +13,11 @@ public class Cake_Enemy_1 : MonoBehaviour, EnemyInterface
     // hp Bar
     public Image hpBar;
 
-    public float height = 1.7f;
-
     private void Start()
     {
         currentHP = initHP;
         myrigid = GetComponent<Rigidbody>();
     }
-
 
     public void Damage(int _damage)
     {

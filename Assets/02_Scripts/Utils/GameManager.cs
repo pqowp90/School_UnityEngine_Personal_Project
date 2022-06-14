@@ -26,9 +26,17 @@ public class GameManager : MonoBehaviour
     private PlayerData PD;
 
     public PlayerData playerData { get { return PD; } }
+    public PlayerState playerState { get; private set; }
 
     private void Awake()
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
+        playerState = PlayerState.Tuto;
     }
+
+    public void SetPlayerState(PlayerState _state)
+    {
+        playerState = _state;
+    }
+
 }

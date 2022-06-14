@@ -18,7 +18,7 @@ public class GunController : MonoBehaviour
     {
         mainCamTrn = Camera.main.transform;
 
-        
+
     }
 
     private void Update()
@@ -32,7 +32,7 @@ public class GunController : MonoBehaviour
 
                 if (hitInfo.collider.CompareTag("ENEMY"))
                 {
-                    Instantiate(hitEffect, hitInfo.point, Quaternion.identity);
+                    Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
 
                     EnemyInterface enmey = hitInfo.collider.GetComponent<EnemyInterface>();
 
