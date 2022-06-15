@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TutorialManager : MonoBehaviour
     [Header("------- Player -------")]
     private GameObject playerObj;
 
+    [Header("------- Object -------")]
+    [SerializeField] private GameObject wall = null;
 
     #region SingleTon
     public static TutorialManager Instance
@@ -41,4 +44,8 @@ public class TutorialManager : MonoBehaviour
         state = _state;
     }
 
+    public void MoveWall()
+    {
+        wall.transform.DOMoveZ((wall.transform.position.z - 3), 1.2f);
+    }
 }
