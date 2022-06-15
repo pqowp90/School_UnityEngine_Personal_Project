@@ -20,6 +20,9 @@ public class MouseLook : MonoBehaviour
 
     private void Update()
     {
+        // if Tutorial && Storying // don't look around 
+        if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
+
         float mouseX = Input.GetAxis(ConstantManager.PM_MOX) * playerData.sensivity;
         float mouseY = Input.GetAxis(ConstantManager.PM_MOY) * playerData.sensivity;
 
