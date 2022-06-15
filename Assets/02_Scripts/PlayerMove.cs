@@ -37,7 +37,6 @@ public class PlayerMove : MonoBehaviour
         float z = Input.GetAxis(ConstantManager.PM_VER);
 
         Vector3 move = (transform.right * x) + (transform.forward * z);
-
         RunPlayer();
 
 

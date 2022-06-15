@@ -1968,7 +1968,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   hpBar: {fileID: 1969572647}
-  height: 1.7
 --- !u!4 &4231189804090071740
 Transform:
   m_ObjectHideFlags: 0

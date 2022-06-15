@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
     private void Start()
     {
         // Connect PlayerObj
-        //state = Tutorial_State.isStory;
+        state = Tutorial_State.isStory;
         playerObj = GameObject.Find("Player");
     }
 
