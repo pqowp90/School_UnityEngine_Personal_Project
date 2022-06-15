@@ -13,6 +13,10 @@ public class Tuto_Food_Item : MonoBehaviour
     public ParticleSystem effect = null;
 
     public foodType foodType;
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +41,5 @@ public class Tuto_Food_Item : MonoBehaviour
     private void ShowEffect()
     {
         Debug.Log("qwe");
-        effect.Play();
     }
 }
