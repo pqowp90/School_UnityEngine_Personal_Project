@@ -8,4 +8,7 @@ public static class ConstantManager
 
     public const string TAG_FLOOR = "FLOOR";
     public const string TAG_BULLET = "BULLET";
+    public const string TAG_ENEMY = "ENEMY";
+    public const string TAG_CANDY_CANE = "CANDY_CANE";
+    public const string TAG_PLAYER = "PLAYER";
 }

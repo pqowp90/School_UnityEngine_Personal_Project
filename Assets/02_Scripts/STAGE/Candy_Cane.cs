@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Candy_Cane : MonoBehaviour
 {
-    private Quaternion hitCaneRot;
+    [SerializeField] private Animator hitAnim;
+    [SerializeField] private ParticleSystem hitEffect = null;
 
-    private void Start()
+    private void Update()
     {
-        hitCaneRot = Quaternion.Euler(60f, -60f, -6.8f);
-        Debug.Log(hitCaneRot);
+        if(Input.GetMouseButtonDown(0))
+        {
+            ShowHitAnimation();
+        }
+    }
+    private void ShowHitAnimation()
+    {
+        hitAnim.SetTrigger("isHit");
+        hitEffect.Play();
     }
 }
