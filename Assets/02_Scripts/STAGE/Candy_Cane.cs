@@ -7,6 +7,12 @@ public class Candy_Cane : MonoBehaviour
     [SerializeField] private Animator hitAnim;
     [SerializeField] private ParticleSystem hitEffect = null;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))

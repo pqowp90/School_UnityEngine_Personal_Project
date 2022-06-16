@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("------- Object -------")]
     [SerializeField] private GameObject wall = null;
+    [SerializeField] private GameObject playerCandy = null;
 
     #region SingleTon
     public static TutorialManager Instance
@@ -47,5 +48,10 @@ public class TutorialManager : MonoBehaviour
     public void MoveWall()
     {
         wall.transform.DOMoveZ((wall.transform.position.z - 3), 1.2f);
+    }
+
+    public void GivePlayerCandy_Cane()
+    {
+        playerCandy.SetActive(true);
     }
 }
