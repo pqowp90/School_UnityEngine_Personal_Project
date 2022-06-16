@@ -13,9 +13,10 @@ public class Tuto_Food_Item : MonoBehaviour
     public ParticleSystem effect = null;
 
     public foodType foodType;
+
     private void Start()
     {
-        
+        effect.gameObject.SetActive(false);    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,12 +35,17 @@ public class Tuto_Food_Item : MonoBehaviour
             }
 
             ShowEffect();
-            Destroy(gameObject);
+            Invoke(nameof(DestroyObj), 0.7f);
         }
     }
 
     private void ShowEffect()
     {
-        Debug.Log("qwe");
+        effect.gameObject.SetActive(true);
+    }
+
+    private void DestroyObj()
+    {
+        Destroy(gameObject);
     }
 }
