@@ -29,11 +29,13 @@ public class Tuto_Food_Item : MonoBehaviour
             if (foodType == foodType.bad)
             {
                 Debug.Log("BAD!!\n");
+                TutorialManager.Instance.bad_item_count++;
             }
 
             else if (foodType == foodType.good)
             {
                 Debug.Log("GOOD!!\n");
+                TutorialManager.Instance.good_item_count++;
                 TutorialManager.Instance.MoveWall();
             }
 

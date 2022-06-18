@@ -43,7 +43,7 @@ public class STAGE_0_Story : MonoBehaviour
             case 0:
                 // 으악ㄱ,,, 어지러워,,,,,
                 checkEndDotween = false;
-                DoTweenColorChange(0.8f, 8f, textBackImg);
+                DoTweenColorChange(0.8f, 4f, textBackImg);
 
                 DotweenShowText(storyText[0], typingSpeed, checkEndDotween, textTrn);
                 break;
@@ -84,7 +84,7 @@ public class STAGE_0_Story : MonoBehaviour
                 textTrn.text = null;
 
                 DoTweenColorChange(1, 0.8f, sulmungImage);
-                DoTweenColorChange(0, 1f, textBackImg);
+                DoTweenColorChange(0, 0.5f, textBackImg);
 
                 DotweenShowText(storyText[5], typingSpeed, checkEndDotween, sulmungText);
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class TutorialManager : MonoBehaviour
@@ -12,8 +13,15 @@ public class TutorialManager : MonoBehaviour
     private GameObject playerObj;
 
     [Header("------- Object -------")]
-    [SerializeField] private GameObject wall = null;
+    [SerializeField] private GameObject StageMap = null;
     [SerializeField] private GameObject playerCandy = null;
+
+    [SerializeField] private GameObject[] walls = null;
+
+    public int good_item_count = 0;
+    public int bad_item_count = 0;
+
+    private int wall_num = 0;
 
     #region SingleTon
     public static TutorialManager Instance
@@ -47,7 +55,18 @@ public class TutorialManager : MonoBehaviour
 
     public void MoveWall()
     {
-        wall.transform.DOMoveZ((wall.transform.position.z - 3), 1.2f);
+        var _value = 0.2f;
+
+        var _x = (StageMap.transform.localScale.x) - _value;
+        var _y = (StageMap.transform.localScale.y) - _value;
+        var _z = (StageMap.transform.localScale.z) - _value;
+        ;
+        StageMap.transform.DOScale(new Vector3(_x, _y, _z), 1f);
+        ++wall_num;
+        if (wall_num >= 5)
+        {
+            NextScen();
+        }
     }
 
     public void GivePlayerCandy_Cane()
@@ -55,4 +74,8 @@ public class TutorialManager : MonoBehaviour
         playerCandy.SetActive(true);
     }
 
+    private void NextScen()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }
