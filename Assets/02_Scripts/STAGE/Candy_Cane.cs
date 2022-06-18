@@ -9,13 +9,13 @@ public class Candy_Cane : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
+        if (Input.GetMouseButtonDown(0))
         {
             ShowHitAnimation();
         }

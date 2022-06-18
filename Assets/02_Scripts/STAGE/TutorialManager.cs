@@ -54,4 +54,5 @@ public class TutorialManager : MonoBehaviour
     {
         playerCandy.SetActive(true);
     }
+
 }
