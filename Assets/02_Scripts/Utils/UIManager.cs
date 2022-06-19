@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Objects")]
+    [SerializeField] private GameObject SettingChangObj = null;
+
     private void Update()
     {
         InputKeyCheck();
@@ -11,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     private void InputKeyCheck()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("³ª°¬¼­¿ë");
         }
@@ -21,4 +24,5 @@ public class UIManager : MonoBehaviour
     {
 
     }
+
 }

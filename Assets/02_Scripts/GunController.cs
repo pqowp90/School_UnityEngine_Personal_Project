@@ -34,7 +34,7 @@ public class GunController : MonoBehaviour
                 {
                     //Instantiate(hitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
 
-                    //EnemyInterface enmey = hitInfo.collider.GetComponent<EnemyInterface>(); 
+                    EnemyInterface enmey = hitInfo.collider.GetComponent<EnemyInterface>();
 
                     if (enmey != null)
                         enmey.Damage(1);

@@ -42,11 +42,11 @@ public class PlayerMove : MonoBehaviour
 
         // if Tutorial && Storying // don't move Player
         //if (TutorialManager.Instance.state == Tutorial_State.isStory)
-        //{
-        //    Debug.Log("wr");
-        //    return;
-        //}
-        controller.Move(move * speed * Time.deltaTime);
+            //{
+            //    Debug.Log("wr");
+            //    return;
+            //}
+            controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown(ConstantManager.PM_JP) && isGrounded)
         {
