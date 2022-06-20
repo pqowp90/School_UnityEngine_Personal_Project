@@ -17,8 +17,6 @@ public class GunController : MonoBehaviour
     private void Start()
     {
         mainCamTrn = Camera.main.transform;
-
-
     }
 
     private void Update()
