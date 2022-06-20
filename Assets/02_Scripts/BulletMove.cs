@@ -6,17 +6,8 @@ public class BulletMove : MonoBehaviour
 {
     public float moveSeed = 10f;
 
-    private Rigidbody myrigid;
-
-    private void Start()
+    private void Update()
     {
-        //myrigid = GetComponent<Rigidbody>();
-        //myrigid.AddForce(transform.forward * 1000f);
-
+        transform.Translate(Vector3.forward * moveSeed * Time.deltaTime);
     }
-
-    //private void Update()
-    //{
-    //    transform.Translate(Vector3.forward * moveSeed * Time.deltaTime);
-    //}
 }

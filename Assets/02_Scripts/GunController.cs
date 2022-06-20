@@ -17,6 +17,9 @@ public class GunController : MonoBehaviour
     private void Start()
     {
         mainCamTrn = Camera.main.transform;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -27,6 +30,9 @@ public class GunController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log($"{hitInfo.collider.tag} АјАн!!");
+                Debug.Log(hitInfo.point);
+
+                var _bullet = Instantiate(bulletObj, bulletTrn.position, hitInfo.transform.rotation);
 
                 if (hitInfo.collider.CompareTag("ENEMY"))
                 {
@@ -40,6 +46,11 @@ public class GunController : MonoBehaviour
 
             }
         }
+
+    }
+
+    private void FireBullet()
+    {
 
     }
 }

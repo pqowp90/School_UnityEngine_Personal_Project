@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   sensivity: 5
-  speed: 6
-  runspeed: 9
+  speed: 13
+  runspeed: 18
   jumpForce: 3
   life: 5
   stamina: 20
