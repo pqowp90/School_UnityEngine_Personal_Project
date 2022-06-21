@@ -8,20 +8,16 @@ public class TutorialManager : MonoBehaviour
 {
     private static TutorialManager _instance;
     public Tutorial_State state { get; private set; }
+    private PlayerData playerData { get; set; }
 
     [Header("------- Player -------")]
     private GameObject playerObj;
 
     [Header("------- Object -------")]
-    [SerializeField] private GameObject StageMap = null;
     [SerializeField] private GameObject playerCandy = null;
-
-    [SerializeField] private GameObject[] walls = null;
 
     public int good_item_count = 0;
     public int bad_item_count = 0;
-
-    private int wall_num = 0;
 
     #region SingleTon
     public static TutorialManager Instance
@@ -41,32 +37,32 @@ public class TutorialManager : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        playerData = Resources.Load<PlayerData>("SO/" + "PlayerData");
+
+        SetPlayerValue();
+    }
+
     private void Start()
     {
         // Connect PlayerObj
+        playerData = Resources.Load<PlayerData>("SO/" + "PlayerData");
+
         state = Tutorial_State.isStory;
         playerObj = GameObject.Find("Player");
+    }
+
+    private void SetPlayerValue()
+    {
+        playerData.speed = 6;
+        playerData.runspeed = 9;
+        playerData.jumpForce = 1;
     }
 
     public void ChangeState(Tutorial_State _state)
     {
         state = _state;
-    }
-
-    public void MoveWall()
-    {
-        var _value = 0.2f;
-
-        var _x = (StageMap.transform.localScale.x) - _value;
-        var _y = (StageMap.transform.localScale.y) - _value;
-        var _z = (StageMap.transform.localScale.z) - _value;
-        ;
-        StageMap.transform.DOScale(new Vector3(_x, _y, _z), 1f);
-        ++wall_num;
-        if (wall_num >= 5)
-        {
-            NextScen();
-        }
     }
 
     public void GivePlayerCandy_Cane()

@@ -36,7 +36,6 @@ public class Tuto_Food_Item : MonoBehaviour
             {
                 Debug.Log("GOOD!!\n");
                 TutorialManager.Instance.good_item_count++;
-                TutorialManager.Instance.MoveWall();
             }
 
             ShowEffect();

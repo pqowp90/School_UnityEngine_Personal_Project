@@ -31,4 +31,9 @@ public class GameManager : MonoBehaviour
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
     }
+
+    private void SetPlayerValues()
+    {
+
+    }
 }
