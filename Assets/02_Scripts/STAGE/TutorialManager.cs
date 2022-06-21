@@ -6,7 +6,6 @@ using DG.Tweening;
 
 public class TutorialManager : MonoBehaviour
 {
-    private static TutorialManager _instance;
     public Tutorial_State state { get; private set; }
     private PlayerData playerData { get; set; }
 
@@ -20,6 +19,9 @@ public class TutorialManager : MonoBehaviour
     public int bad_item_count = 0;
 
     #region SingleTon
+
+    private static TutorialManager _instance;
+
     public static TutorialManager Instance
     {
         get

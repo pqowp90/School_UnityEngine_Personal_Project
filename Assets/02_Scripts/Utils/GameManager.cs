@@ -26,14 +26,27 @@ public class GameManager : MonoBehaviour
     private PlayerData PD;
 
     public PlayerData playerData { get { return PD; } }
+    public Tutorial_State tutoState;
 
     private void Awake()
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
+        SetPlayerValues();
+
+    }
+
+    private void OnEnable()
+    {
+        // reset Setting
+        tutoState = Tutorial_State.isPlay;
+        Debug.Log(tutoState);
     }
 
     private void SetPlayerValues()
     {
-
+        playerData.speed = 13;
+        playerData.runspeed = 15;
+        playerData.jumpForce = 3;
     }
+
 }
