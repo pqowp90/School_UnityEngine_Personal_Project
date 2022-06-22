@@ -24,13 +24,13 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(bulletTrn.transform.position, mainCamTrn.transform.forward * 100f, Color.magenta);
+        Debug.DrawRay(bulletTrn.transform.position, mainCamTrn.transform.forward * 100f, Color.red);
+
         if (Physics.Raycast(bulletTrn.transform.position, mainCamTrn.transform.forward, out hitInfo, 100f))
         {
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log($"{hitInfo.collider.tag} АјАн!!");
-                Debug.Log(hitInfo.point);
 
                 var _bullet = Instantiate(bulletObj, bulletTrn.position, hitInfo.transform.rotation);
 
