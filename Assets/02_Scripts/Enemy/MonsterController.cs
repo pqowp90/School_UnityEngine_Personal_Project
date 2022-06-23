@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterController : MonoBehaviour
+public class MonsterController : MonoBehaviour, EnemyInterface
 {
     public enum State
     {
@@ -26,7 +26,7 @@ public class MonsterController : MonoBehaviour
     // Components Cashing
     private Transform monsterTrn = null;
     private Transform targetTrn = null;
-    private Animator animator = null;
+    private Animator anim = null;
     private NavMeshAgent agent = null;
 
     // Get HashTable Values
@@ -37,7 +37,10 @@ public class MonsterController : MonoBehaviour
 
     // Monster initial Life_Value
     private readonly int iniHP = 50;
-    private int currHP;
+    public int currHP;
+
+    [Header("-------Effects-------")]
+    public ParticleSystem die_effect = null;
 
     private void Start()
     {
@@ -45,8 +48,9 @@ public class MonsterController : MonoBehaviour
         currHP = iniHP;
 
         monsterTrn = GetComponent<Transform>();
-        targetTrn = GameObject.FindWithTag("PLATER").GetComponent<Transform>();
+        targetTrn = GameObject.FindWithTag(ConstantManager.TAG_PLAYER).GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
+        agent.updatePosition = false;
     }
 
     private void OnEnable()
@@ -56,7 +60,9 @@ public class MonsterController : MonoBehaviour
 
         isDie = false;
 
+        GetComponent<CapsuleCollider>().enabled = true;
         StartCoroutine(CheckMonsterState());
+
     }
 
     private IEnumerator CheckMonsterState()
@@ -64,23 +70,81 @@ public class MonsterController : MonoBehaviour
         while (!isDie)
         {
             yield return new WaitForSeconds(0.3f);
+            if (state == State.PlayerDie)
+                yield break;
 
+            if (state == State.Die)
+                yield break;
+
+            float _dis = Vector3.Distance(monsterTrn.position, targetTrn.position);
+
+            if (_dis <= attackDist)
+                state = State.Attack;
+
+            else if (_dis <= traceDist)
+                state = State.Trace;
+
+            else
+                state = State.Idle;
 
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator MonsterAction()
     {
-        if (collision.collider.CompareTag(ConstantManager.TAG_BULLET))
+        while (!isDie)
         {
-            Destroy(collision.gameObject);
 
-            currHP -= 10;
 
-            if (currHP <= 0)
+            switch (state)
             {
-                state = State.Die;
+                case State.Idle:
+                    agent.isStopped = true;
+                    anim.SetBool(hashTrace, false);
+                    break;
+
+                case State.Trace:
+                    agent.SetDestination(targetTrn.position);
+                    agent.isStopped = false;
+                    anim.SetBool(hashTrace, true);
+                    anim.SetBool(hashAttack, false);
+                    break;
+
+                case State.Attack:
+                    anim.SetBool(hashAttack, true);
+                    break;
+
+
+                case State.Die:
+                    isDie = true;
+                    agent.isStopped = true;
+                    anim.SetTrigger(hashDie);
+
+                    GetComponent<CapsuleCollider>().enabled = false;
+
+                    //SphereCollider[] spheres = GetComponentsInChildren<SphereCollider>();
+                    //foreach (SphereCollider sphere in spheres)
+                    //{
+                    //    sphere.enabled = false;
+                    //}
+
+                    yield return new WaitForSeconds(3f);
+
+                    gameObject.SetActive(false);
+                    break;
+
+                case State.PlayerDie:
+                    StopAllCoroutines();
+
+                    agent.isStopped = true;
+                    //anim.SetFloat(hashSpeed, Random.Range(0.5f, 1.3f));
+                    anim.SetTrigger(hashPlayerDie);
+
+                    GetComponent<CapsuleCollider>().enabled = false;
+                    break;
             }
+
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
@@ -92,10 +156,21 @@ public class MonsterController : MonoBehaviour
             Gizmos.DrawWireSphere(monsterTrn.position, traceDist);
         }
 
-        if(state == State.Attack)
+        if (state == State.Attack)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(monsterTrn.position, attackDist);
+        }
+    }
+
+    public void Damage(int _damage)
+    {
+        currHP -= 10;
+
+        if (currHP <= 0)
+        {
+            die_effect.Play();
+            state = State.Die;
         }
     }
 }

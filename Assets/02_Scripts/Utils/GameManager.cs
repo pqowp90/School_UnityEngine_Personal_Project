@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
         SetPlayerValues();
-
-    }
+    }   
 
     private void OnEnable()
     {

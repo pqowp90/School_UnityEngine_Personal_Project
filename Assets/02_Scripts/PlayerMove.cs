@@ -39,7 +39,6 @@ public class PlayerMove : MonoBehaviour
         Vector3 move = (transform.right * x) + (transform.forward * z);
         RunPlayer();
 
-
         // if Tutorial && Storying // don't move Player
         //if (TutorialManager.Instance.state == Tutorial_State.isStory)
         //    return;
