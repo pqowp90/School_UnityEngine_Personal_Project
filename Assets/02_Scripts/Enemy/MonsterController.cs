@@ -25,9 +25,9 @@ public class MonsterController : MonoBehaviour, EnemyInterface
 
     // Components Cashing
     private Transform monsterTrn = null;
-    public Transform targetTrn = null;
+    private Transform targetTrn = null;
     private Animator anim = null;
-    public NavMeshAgent agent = null;
+    private NavMeshAgent agent = null;
 
     // Get HashTable Values
     private readonly int hashTrace = Animator.StringToHash("isTrace");
@@ -50,6 +50,7 @@ public class MonsterController : MonoBehaviour, EnemyInterface
         currHP = iniHP;
 
         monsterTrn = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
         targetTrn = GameObject.FindWithTag(ConstantManager.TAG_PLAYER).GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         agent.updatePosition = false;
@@ -62,7 +63,7 @@ public class MonsterController : MonoBehaviour, EnemyInterface
 
         isDie = false;
 
-        GetComponent<CapsuleCollider>().enabled = true;
+        //GetComponent<CapsuleCollider>().enabled = true;
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction());
     }

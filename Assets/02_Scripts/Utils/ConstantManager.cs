@@ -11,4 +11,5 @@ public static class ConstantManager
     public const string TAG_ENEMY = "ENEMY";
     public const string TAG_CANDY_CANE = "CANDY_CANE";
     public const string TAG_PLAYER = "PLAYER";
+    public const string TAG_ITEM = "ITEM";
 }

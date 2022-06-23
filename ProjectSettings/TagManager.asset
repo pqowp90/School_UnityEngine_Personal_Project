@@ -9,6 +9,7 @@ TagManager:
   - ENEMY
   - CANDY_CANE
   - PLAYER
+  - ITEM
   layers:
   - Default
   - TransparentFX
