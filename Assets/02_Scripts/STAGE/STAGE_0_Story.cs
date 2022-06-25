@@ -89,6 +89,7 @@ public class STAGE_0_Story : MonoBehaviour
                 DoTweenColorChange(0, 0.5f, textBackImg);
 
                 DotweenShowText(storyText[5], typingSpeed, checkEndDotween, sulmungText);
+                TutorialManager.Instance.ReadySpawnItems();
 
                 break;
         }

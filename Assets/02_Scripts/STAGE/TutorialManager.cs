@@ -15,11 +15,16 @@ public class TutorialManager : MonoBehaviour
 
     [Header("------- Object -------")]
     [SerializeField] private GameObject playerCandy = null;
+    public GameObject[] items = null;
+    public List<Transform> points = new List<Transform>();
 
+    [Header("------- UI -------")]
     public Text itemCnt = null;
     public Image itemGaze = null;
 
     public int good_item_count = 0;
+
+    private readonly WaitForSeconds delay = new WaitForSeconds(3f);
 
     #region SingleTon
 
@@ -46,7 +51,7 @@ public class TutorialManager : MonoBehaviour
     {
         playerData = Resources.Load<PlayerData>("SO/" + "PlayerData");
 
-        SetPlayerValue();
+        SetPlayerValue(6, 7.5f, 1);
     }
 
     private void Start()
@@ -57,13 +62,14 @@ public class TutorialManager : MonoBehaviour
         state = Tutorial_State.isStory;
         playerObj = GameObject.Find("Player");
         ItemTextUpdate();
+        itemGaze.fillAmount = 0f;
     }
 
-    private void SetPlayerValue()
+    public void SetPlayerValue(float _speed, float _runSpeed, float _jumpForce)
     {
-        playerData.speed = 6;
-        playerData.runspeed = 9;
-        playerData.jumpForce = 1;
+        playerData.speed = _speed;
+        playerData.runspeed = _runSpeed;
+        playerData.jumpForce = _jumpForce;
     }
 
     public void ChangeState(Tutorial_State _state)
@@ -91,6 +97,33 @@ public class TutorialManager : MonoBehaviour
             NextScen();
         }
 
-        itemGaze.fillAmount += 0.05f;
+        itemGaze.fillAmount += 0.08f;
+    }
+
+    public void ReadySpawnItems()
+    {
+        StartCoroutine(Spawner());
+    }
+
+    private IEnumerator Spawner()
+    {
+        //yield return new WaitForSeconds(8f);
+
+        while (true)
+        {
+            SpawnItems();
+            yield return delay;
+        }
+    }
+
+    private void SpawnItems()
+    {
+        var _rand_item = Random.Range(0, items.Length);
+        var _rand_pos = Random.Range(0, points.Count);
+
+        var _item = Instantiate(items[_rand_item], points[_rand_pos]);
+
+        Debug.Log($"{_item.name} »ý¼º!");
+
     }
 }

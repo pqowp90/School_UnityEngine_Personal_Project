@@ -12,6 +12,7 @@ public class FollowEnemy : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        taget = GameObject.FindGameObjectWithTag(ConstantManager.TAG_PLAYER).GetComponent<Transform>();
     }
 
     public void Update()

@@ -70,14 +70,14 @@ public class MonsterController : MonoBehaviour, EnemyInterface
 
     private void Update()
     {
-        if (agent.remainingDistance >= 2f)
-        {
-            Vector3 direction = agent.desiredVelocity;
-            if (direction == null) return;
+        //if (agent.remainingDistance >= 2f)
+        //{
+        //    Vector3 direction = agent.desiredVelocity;
+        //    if (direction == null) return;
 
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            monsterTrn.rotation = Quaternion.Slerp(monsterTrn.rotation, rotation, Time.deltaTime * 10f);
-        }
+        //    Quaternion rotation = Quaternion.LookRotation(direction);
+        //    monsterTrn.rotation = Quaternion.Slerp(monsterTrn.rotation, rotation, Time.deltaTime * 10f);
+        //}
     }
 
     private IEnumerator CheckMonsterState()

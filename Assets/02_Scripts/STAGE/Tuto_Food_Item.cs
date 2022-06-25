@@ -16,9 +16,10 @@ public class Tuto_Food_Item : MonoBehaviour
     public foodType foodType;
     private Camera playerCam;
 
+    private int life = 2;
+
     private void Start()
     {
-        effect.gameObject.SetActive(false);
         playerCam = Camera.main;
     }
 
@@ -26,22 +27,31 @@ public class Tuto_Food_Item : MonoBehaviour
     {
         if (other.CompareTag(ConstantManager.TAG_CANDY_CANE))
         {
-            if (foodType == foodType.good)
-            {
-                Debug.Log("GOOD!!\n");
-                TutorialManager.Instance.good_item_count++;
-            }
-
-            TutorialManager.Instance.ItemTextUpdate();
+            life--;
             ShowEffect();
             DoTweenCameraShaking(0.2f, 0.3f, 2);
-            Invoke(nameof(DestroyObj), 0.7f);
+
+            if (life <= 0)
+            {
+                TutorialManager.Instance.good_item_count++;
+                if (TutorialManager.Instance.good_item_count % 2 == 0)
+                {
+                    var _speed = 6f - 1.4f;
+                    var _runspeed = 7.5f - 1.4f;
+                    var _jumpForce = 1f - 0.2f;
+
+                    TutorialManager.Instance.SetPlayerValue(_speed, _runspeed, _jumpForce);
+                }
+
+                TutorialManager.Instance.ItemTextUpdate();
+                Invoke(nameof(DestroyObj), 0.7f);
+            }
         }
     }
 
     private void ShowEffect()
     {
-        effect.gameObject.SetActive(true);
+        effect.Play();
     }
 
     private void DestroyObj()
