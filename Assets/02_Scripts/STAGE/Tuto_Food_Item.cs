@@ -26,18 +26,13 @@ public class Tuto_Food_Item : MonoBehaviour
     {
         if (other.CompareTag(ConstantManager.TAG_CANDY_CANE))
         {
-            if (foodType == foodType.bad)
-            {
-                Debug.Log("BAD!!\n");
-                TutorialManager.Instance.bad_item_count++;
-            }
-
-            else if (foodType == foodType.good)
+            if (foodType == foodType.good)
             {
                 Debug.Log("GOOD!!\n");
                 TutorialManager.Instance.good_item_count++;
             }
 
+            TutorialManager.Instance.ItemTextUpdate();
             ShowEffect();
             DoTweenCameraShaking(0.2f, 0.3f, 2);
             Invoke(nameof(DestroyObj), 0.7f);

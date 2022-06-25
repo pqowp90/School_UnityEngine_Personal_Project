@@ -14,7 +14,8 @@ public class Candy_Cane : MonoBehaviour
 
     private void Update()
     {
-        if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
+        //if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
+        if (GameManager.Instance.tutoState == Tutorial_State.isStory) return;
         if (Input.GetMouseButtonDown(0))
         {
             ShowHitAnimation();

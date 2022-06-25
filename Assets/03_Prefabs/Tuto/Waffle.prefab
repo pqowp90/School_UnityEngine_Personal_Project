@@ -19533,6 +19533,8 @@ GameObject:
   - component: {fileID: 4943374820651502388}
   - component: {fileID: 4943374820651502386}
   - component: {fileID: 4943374820651502389}
+  - component: {fileID: 3080558946960665008}
+  - component: {fileID: 3048458864684607167}
   m_Layer: 0
   m_Name: Waffle
   m_TagString: Untagged
@@ -19547,7 +19549,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4943374820651502387}
-  m_LocalRotation: {x: -0.000000004878425, y: 0.9747702, z: -0.000000021304283, w: 0.22321104}
+  m_LocalRotation: {x: 0, y: 0.9747709, z: 0, w: 0.22320767}
   m_LocalPosition: {x: 6.434, y: -0.66, z: -6.722}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -19648,3 +19650,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36446333, y: 0.36040837, z: 0.12287118}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &3080558946960665008
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943374820651502387}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1822317
+  m_Speed: 0.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.36040837
+  m_BaseOffset: 0.18020418
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &3048458864684607167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943374820651502387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d0a6f7f683fc0449265003dadaa19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taget: {fileID: 0}

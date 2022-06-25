@@ -19533,6 +19533,8 @@ GameObject:
   - component: {fileID: 5387088691537609059}
   - component: {fileID: 5387088691537609058}
   - component: {fileID: 5387088691537609061}
+  - component: {fileID: 5418606715358434437}
+  - component: {fileID: 5875388090008697705}
   m_Layer: 0
   m_Name: hambugar
   m_TagString: Untagged
@@ -19649,3 +19651,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4192368772912749798}
   foodType: 1
+--- !u!195 &5418606715358434437
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387088691537609060}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.15529272
+  m_Speed: 0.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.3101684
+  m_BaseOffset: 0.1550842
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5875388090008697705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387088691537609060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d0a6f7f683fc0449265003dadaa19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taget: {fileID: 0}

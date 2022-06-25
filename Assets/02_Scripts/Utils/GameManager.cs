@@ -31,17 +31,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
-        SetPlayerValues();
+       
     }   
 
     private void OnEnable()
     {
         // reset Setting
         tutoState = Tutorial_State.isPlay;
-        Debug.Log(tutoState);
     }
 
-    private void SetPlayerValues()
+    public void SetPlayerValues()
     {
         playerData.speed = 13;
         playerData.runspeed = 15;

@@ -40,8 +40,8 @@ public class PlayerMove : MonoBehaviour
         RunPlayer();
 
         // if Tutorial && Storying // don't move Player
-        //if (TutorialManager.Instance.state == Tutorial_State.isStory)
-        //    return;
+        //if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
+        if (GameManager.Instance.tutoState == Tutorial_State.isStory) return;
 
         controller.Move(move * speed * Time.deltaTime);
 

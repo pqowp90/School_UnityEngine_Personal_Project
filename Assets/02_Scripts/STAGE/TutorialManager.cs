@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
@@ -15,8 +16,10 @@ public class TutorialManager : MonoBehaviour
     [Header("------- Object -------")]
     [SerializeField] private GameObject playerCandy = null;
 
+    public Text itemCnt = null;
+    public Image itemGaze = null;
+
     public int good_item_count = 0;
-    public int bad_item_count = 0;
 
     #region SingleTon
 
@@ -53,6 +56,7 @@ public class TutorialManager : MonoBehaviour
 
         state = Tutorial_State.isStory;
         playerObj = GameObject.Find("Player");
+        ItemTextUpdate();
     }
 
     private void SetPlayerValue()
@@ -75,5 +79,18 @@ public class TutorialManager : MonoBehaviour
     private void NextScen()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void ItemTextUpdate()
+    {
+        itemCnt.text = $"{good_item_count}";
+
+        if (itemGaze.fillAmount >= 1)
+        {
+            GameManager.Instance.SetPlayerValues();
+            NextScen();
+        }
+
+        itemGaze.fillAmount += 0.05f;
     }
 }

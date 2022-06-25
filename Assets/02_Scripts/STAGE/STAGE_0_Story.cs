@@ -30,7 +30,8 @@ public class STAGE_0_Story : MonoBehaviour
 
     private void Start()
     {
-        TutorialManager.Instance.ChangeState(Tutorial_State.isStory);
+        //TutorialManager.Instance.ChangeState(Tutorial_State.isStory);
+        GameManager.Instance.tutoState = Tutorial_State.isStory;
         textTrn.text = null;
         LoadingStory(index);
     }
@@ -80,7 +81,8 @@ public class STAGE_0_Story : MonoBehaviour
                 checkEndDotween = false;
 
                 CursorLock();
-                TutorialManager.Instance.ChangeState(Tutorial_State.isPlay);
+                //TutorialManager.Instance.ChangeState(Tutorial_State.isPlay);
+                GameManager.Instance.tutoState = Tutorial_State.isPlay;
                 textTrn.text = null;
 
                 DoTweenColorChange(1, 0.8f, sulmungImage);
