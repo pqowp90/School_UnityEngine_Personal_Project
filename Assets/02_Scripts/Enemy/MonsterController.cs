@@ -67,7 +67,7 @@ public class MonsterController : MonoBehaviour, EnemyInterface
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction());
     }
-
+    
     private void Update()
     {
         //if (agent.remainingDistance >= 2f)
