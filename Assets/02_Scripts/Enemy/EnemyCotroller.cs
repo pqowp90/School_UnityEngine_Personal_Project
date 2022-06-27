@@ -62,14 +62,17 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
 
     private void LookEnemyPlayer()
     {
-        if (agent.remainingDistance >= 2f)
-        {
-            var direction = agent.desiredVelocity;
-            if (direction == null) return;
+        //if (agent.remainingDistance >= 2f)
+        //{
+        var direction = agent.desiredVelocity;
+        //    if (direction == null) return;
 
-            var rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
-        }
+        //    var rotation = Quaternion.LookRotation(direction);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
+        //}
+
+        var rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
     }
 
     private IEnumerator CheckMonsterState()
@@ -107,7 +110,7 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
                 case State.TRACE:
                     agent.SetDestination(targetTrn.position);
                     agent.isStopped = false;
-                    StartCoroutine(Throw());
+                    //StartCoroutine(Throw());
 
                     //anim.SetBool(hashTrace, true);
                     //anim.SetBool(hashAttack, false);
@@ -153,11 +156,11 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
     private void PlayerDie()
     {
         Destroy(gameObject);
-    }   
+    }
 
     private IEnumerator Throw()
     {
-        while(true)
+        while (true)
         {
 
             yield return null;

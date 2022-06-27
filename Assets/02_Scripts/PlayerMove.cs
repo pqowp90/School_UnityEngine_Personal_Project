@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     private bool isGrounded;
 
     private float speed;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -61,5 +62,23 @@ public class PlayerMove : MonoBehaviour
             speed = playerData.runspeed;
         else
             speed = playerData.speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag(ConstantManager.TAG_ITEM))
+        {
+            Item_InterFace item = other.GetComponent<Item_InterFace>();
+
+            if (item != null)
+                item.GetItem();
+        }
+        if(other.CompareTag(ConstantManager.TAG_ENEMY))
+        {
+            GameManager.Instance.SettingPlayerLife(1f);
+            UIManager.Instance.UpdateUI();
+
+            Debug.Log("life low");
+        }
     }
 }

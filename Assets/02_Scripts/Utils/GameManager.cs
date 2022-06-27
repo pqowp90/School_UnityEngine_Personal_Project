@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,14 +26,16 @@ public class GameManager : MonoBehaviour
 
     private PlayerData PD;
 
+    public float playerLife = 10f;
+
     public PlayerData playerData { get { return PD; } }
     public Tutorial_State tutoState;
+    public CurrentLevel currentLevel;
 
     private void Awake()
     {
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
-       
-    }   
+    }
 
     private void OnEnable()
     {
@@ -45,6 +48,18 @@ public class GameManager : MonoBehaviour
         playerData.speed = 13;
         playerData.runspeed = 15;
         playerData.jumpForce = 3;
+    }
+
+    public void SettingPlayerLife(float _value)
+    {
+        playerLife -= _value;
+
+        if (playerLife <= 0)
+        {
+            Debug.Log("Player Die");
+            SceneManager.LoadScene(ConstantManager.SCENCE_GAMEOVER);
+        }
+
     }
 
 }

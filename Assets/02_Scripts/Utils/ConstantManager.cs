@@ -14,4 +14,7 @@ public static class ConstantManager
     public const string TAG_ITEM = "ITEM";
 
     public const string SCENCE_TUTO = "STAGE_00";
+    public const string SCENCE_START = "StartScence";
+    public const string SCENCE_MAIN = "Main";
+    public const string SCENCE_GAMEOVER = "GameOver";
 }

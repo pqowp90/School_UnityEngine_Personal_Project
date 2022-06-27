@@ -8,7 +8,7 @@ public class Item_Tomato : MonoBehaviour, Item_InterFace
 
     public void GetItem()
     {
-        Invoke(nameof(PlayerObjFalse), 0.5f);
+        Invoke(nameof(PlayerObjFalse), 1f);
         effect.gameObject.SetActive(true);
     }
 
@@ -16,4 +16,6 @@ public class Item_Tomato : MonoBehaviour, Item_InterFace
     {
         Destroy(gameObject);
     }
+
+
 }
