@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3d68365cf0210814fa822163e537e73f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -938,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 3414134438750017748, guid: 45361742b95243548b98f0c26e186a78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414134438750017750, guid: 45361742b95243548b98f0c26e186a78, type: 3}
+      propertyPath: attackDist
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45361742b95243548b98f0c26e186a78, type: 3}
@@ -2085,6 +2089,10 @@ PrefabInstance:
     - target: {fileID: 3414134438750017748, guid: 45361742b95243548b98f0c26e186a78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414134438750017755, guid: 45361742b95243548b98f0c26e186a78, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45361742b95243548b98f0c26e186a78, type: 3}
@@ -4578,8 +4586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0462778a596a5cc4ca15b9e01b6b0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  hpBar: {fileID: 1969572647}
 --- !u!1 &2098600468
 GameObject:
   m_ObjectHideFlags: 0

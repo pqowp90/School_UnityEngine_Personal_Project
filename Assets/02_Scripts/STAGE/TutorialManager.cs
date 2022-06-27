@@ -89,8 +89,6 @@ public class TutorialManager : MonoBehaviour
 
     public void ItemTextUpdate()
     {
-        itemCnt.text = $"{good_item_count}";
-
         if (itemGaze.fillAmount >= 1)
         {
             GameManager.Instance.SetPlayerValues();

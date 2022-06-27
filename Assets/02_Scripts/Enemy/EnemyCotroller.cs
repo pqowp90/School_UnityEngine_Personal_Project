@@ -107,6 +107,7 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
                 case State.TRACE:
                     agent.SetDestination(targetTrn.position);
                     agent.isStopped = false;
+                    StartCoroutine(Throw());
 
                     //anim.SetBool(hashTrace, true);
                     //anim.SetBool(hashAttack, false);
@@ -145,12 +146,21 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
         {
             die_effect.gameObject.SetActive(true);
 
-            Invoke(nameof(PlayerDie), 0.5f);
+            Invoke(nameof(PlayerDie), 0.3f);
         }
     }
 
     private void PlayerDie()
     {
         Destroy(gameObject);
+    }   
+
+    private IEnumerator Throw()
+    {
+        while(true)
+        {
+
+            yield return null;
+        }
     }
 }
