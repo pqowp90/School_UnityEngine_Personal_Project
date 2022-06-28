@@ -12,6 +12,7 @@ public static class ConstantManager
     public const string TAG_CANDY_CANE = "CANDY_CANE";
     public const string TAG_PLAYER = "PLAYER";
     public const string TAG_ITEM = "ITEM";
+    public const string TAG_ENEMY_BULLET = "ENEMY_BULLET";
 
     public const string SCENCE_TUTO = "STAGE_00";
     public const string SCENCE_START = "StartScence";

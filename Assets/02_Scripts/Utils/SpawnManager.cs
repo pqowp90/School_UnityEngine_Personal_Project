@@ -30,6 +30,7 @@ public class SpawnManager : MonoBehaviour
         var idx = Random.Range(0, points.Count);
 
         var _enemy = Instantiate(enemy1, points[idx]);
+        _enemy.transform.SetParent(null);
         //Debug.Log($"enemy {points[idx]}위치에 생성!\n");
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - CANDY_CANE
   - PLAYER
   - ITEM
+  - ENEMY_BULLET
   layers:
   - Default
   - TransparentFX

@@ -31,9 +31,12 @@ public class GameManager : MonoBehaviour
     public PlayerData playerData { get { return PD; } }
     public Tutorial_State tutoState;
     public CurrentLevel currentLevel;
-
+    public int itemCnt = 0;
+    public Transform playerTrn = null;
     private void Awake()
     {
+        playerTrn = GameObject.FindWithTag(ConstantManager.TAG_PLAYER).GetComponent<Transform>();
+
         PD = Resources.Load<PlayerData>("SO/" + "PlayerData");
     }
 

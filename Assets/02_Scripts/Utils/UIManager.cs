@@ -27,7 +27,10 @@ public class UIManager : MonoBehaviour
     #endregion
     [Header("Objects")]
     [SerializeField] private GameObject SettingChangObj = null;
+
     public Image hpBar = null;
+    public Image level_gaze = null;
+
 
     private bool isSetting = false;
     private void Update()
@@ -83,6 +86,11 @@ public class UIManager : MonoBehaviour
     public void UpdateUI()
     {
         hpBar.fillAmount = GameManager.Instance.playerLife / 10f;
+    }
+
+    public void SettingPlayerLevelGaze()
+    {
+        level_gaze.fillAmount = GameManager.Instance.itemCnt / 10f;
     }
 
 }

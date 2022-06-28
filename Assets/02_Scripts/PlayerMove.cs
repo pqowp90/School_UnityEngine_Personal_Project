@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -66,19 +67,25 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(ConstantManager.TAG_ITEM))
+        if (other.CompareTag(ConstantManager.TAG_ITEM))
         {
             Item_InterFace item = other.GetComponent<Item_InterFace>();
 
             if (item != null)
                 item.GetItem();
         }
-        if(other.CompareTag(ConstantManager.TAG_ENEMY))
+        if (other.CompareTag(ConstantManager.TAG_ENEMY) || other.CompareTag(ConstantManager.TAG_ENEMY_BULLET)   )
         {
             GameManager.Instance.SettingPlayerLife(1f);
             UIManager.Instance.UpdateUI();
 
+            DoTweenCameraShaking(0.2f, 0.3f, 2);
             Debug.Log("life low");
         }
+    }
+
+    private void DoTweenCameraShaking(float _dur, float _str, int _vibro)
+    {
+        Camera.main.DOShakePosition(_dur, _str, _vibro);
     }
 }

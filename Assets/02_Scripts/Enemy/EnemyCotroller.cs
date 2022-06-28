@@ -144,6 +144,12 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
     public void Damage(int _damage)
     {
         currHP -= 10;
+        GameManager.Instance.itemCnt++;
+
+        if (GameManager.Instance.itemCnt % 3 == 0)
+        {
+
+        }
 
         if (currHP <= 0)
         {
