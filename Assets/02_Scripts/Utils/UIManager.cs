@@ -45,10 +45,14 @@ public class UIManager : MonoBehaviour
             isSetting = !isSetting;
             if (isSetting)
             {
+                GameManager.Instance.state = PlayState.isSetting;
+                Time.timeScale = 0f;
                 StartSetting();
             }
             else
             {
+                GameManager.Instance.state = PlayState.isPlaying;
+                Time.timeScale = 1f;
                 EndSetting();
             }
         }
@@ -86,11 +90,7 @@ public class UIManager : MonoBehaviour
     public void UpdateUI()
     {
         hpBar.fillAmount = GameManager.Instance.playerLife / 10f;
-    }
-
-    public void SettingPlayerLevelGaze()
-    {
         level_gaze.fillAmount = GameManager.Instance.itemCnt / 10f;
-    }
 
+    }
 }

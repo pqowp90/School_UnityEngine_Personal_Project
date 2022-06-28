@@ -144,15 +144,18 @@ public class EnemyCotroller : MonoBehaviour, EnemyInterface
     public void Damage(int _damage)
     {
         currHP -= 10;
-        GameManager.Instance.itemCnt++;
 
-        if (GameManager.Instance.itemCnt % 3 == 0)
+        if (GameManager.Instance.itemCnt >= 0)
         {
-
+            GameManager.Instance.itemCnt = 0;
+            GameManager.Instance.playerLife = 10;
+            UIManager.Instance.UpdateUI();
         }
 
         if (currHP <= 0)
         {
+            GameManager.Instance.itemCnt += 5;
+            UIManager.Instance.UpdateUI();
             die_effect.gameObject.SetActive(true);
 
             Invoke(nameof(PlayerDie), 0.3f);

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerData playerData { get { return PD; } }
     public Tutorial_State tutoState;
+    public PlayState state;
     public CurrentLevel currentLevel;
     public int itemCnt = 0;
     public Transform playerTrn = null;
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (playerLife <= 0)
         {
             Debug.Log("Player Die");
-            SceneManager.LoadScene(ConstantManager.SCENCE_GAMEOVER);
+            SceneManager.LoadScene(ConstantManager.SCENCE_START);
         }
 
     }

@@ -44,6 +44,7 @@ public class PlayerMove : MonoBehaviour
         // if Tutorial && Storying // don't move Player
         //if (TutorialManager.Instance.state == Tutorial_State.isStory) return;
         if (GameManager.Instance.tutoState == Tutorial_State.isStory) return;
+        if (GameManager.Instance.state == PlayState.isSetting) return;
 
         controller.Move(move * speed * Time.deltaTime);
 
